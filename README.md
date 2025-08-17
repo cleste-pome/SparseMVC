@@ -4,11 +4,29 @@ I have attempted to build a training framework for multi-view learning (the clus
 
 Just getting started, to be continued.
 
-## 1. Simple and seamless data loading
+## 1. Workflow of SparseMVC
+
+The framework of SparseMVC.
+
+## 2. Requirements
+
+- python==3.8.15
+
+- pytorch==1.12.0
+
+- numpy==1.21.6
+
+- scikit-learn==1.0
+
+- scipy==1.10.1
+
+## 3. Introduction to the Multi-View Clustering Code Framework
+
+### 3.1 Simple and seamless data loading
 
 Simply package the dataset in .mat format and place it in the "datasets" folder to enable one-click training for all datasets, regardless of the number of views.
 
-## 2. Data processing
+### 3.2 Data processing
 
 ```python
 # TODO 中文：选取noise ratio比例的样本，随机(1到view-1)个视图做添加高斯噪声处理 English：Select samples with a noise ratio, and randomly apply Gaussian noise processing to (1 to view-1) views
@@ -21,7 +39,7 @@ parser.add_argument('--missing_ratio', type=float, default=0.0)
 parser.add_argument('--sparsity_ratio', type=float, default=0.0)
 ```
 
-## 3. Hype parameters
+### 3.3 Hype parameters
 
 ```python
 parser.add_argument('--batch_size', default=256, type=int)
@@ -35,7 +53,7 @@ parser.add_argument("--seed", default=50)
 parser.add_argument("--weight_decay", default=0.0)
 ```
 
-## 4. Visualization of the training process and automatic data storage
+### 3.4 Visualization of the training process and automatic data storage
 
 The system automatically saves 
 
@@ -70,3 +88,16 @@ Late-fused Feature Clustering
 | Global (Y) | 0.7216 | 0.8175 | 0.5998 |   0.7358 |
 +------------+--------+--------+--------+----------+
 ```
+
+## 4. Acknowledgments
+
+Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC), and [[CPSPAN](https://github.com/jinjiaqi1998/CPSPAN)](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions.
+
+## 5.Citation
+
+If you use our code framework or get inspired by our work (hopefully as a positive example, but if it’s a negative example, that's fine too(*≧ω≦)), please cite our paper! 
+
+```latex
+
+```
+
