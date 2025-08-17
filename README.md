@@ -20,7 +20,7 @@ The framework of SparseMVC.
 
 - scipy==1.10.1
 
-## 3. Introduction to the Multi-View Clustering Code Framework
+## 3. Multi-View Clustering Code Framework
 
 ### 3.1 Simple and seamless data loading
 
@@ -91,7 +91,7 @@ Late-fused Feature Clustering
 
 ## 4. Acknowledgments
 
-Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC), and [[CPSPAN](https://github.com/jinjiaqi1998/CPSPAN)](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions.
+Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC), and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions.
 
 ## 5.Citation
 
