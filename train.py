@@ -228,10 +228,6 @@ if __name__ == '__main__':
                         pur_list.append(pur)
                         ari_list.append(ari)
                 # plot_acc(imgs_path, preloss_list, Dataname, 'pretrain loss')
-                if data_size >= 2500:
-                    args.con_epochs = 1000
-                # else:
-                #     args.con_epochs = 300
                 for epoch in tqdm(range(args.con_epochs)):
                     epoch = args.pre_epochs + epoch
                     plot_SDD = False

@@ -49,14 +49,12 @@ class MultiViewDataset(Dataset):
         norm_x = scaler.fit_transform(x)
         return norm_x
 
-    # TODO [conflict] 1.对测试集进行后处理，增加噪声和冲突实例
     def postprocessing(self, index,
                        addNoise=False, sigma=0, ratio_noise=0.5,
                        addConflict=False, ratio_conflict=0.5,
-                       addMissing=True, missing_rate=0.5):
+                       addMissing=False, missing_rate=0.5):
         if addNoise:
-            # 'sigma': 噪声的标准差; ratio_noise: 决定对多少比例的数据添加噪声
-            self.addNoise(index, ratio_noise, sigma=sigma)
+            self.addNoise(index, ratio_noise, sigma=sigma) # 'sigma': 噪声的标准差; ratio_noise: 决定对多少比例的数据添加噪声
         if addConflict:
             self.addConflict(index, ratio_conflict)
         if addMissing:

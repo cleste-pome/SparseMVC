@@ -3,15 +3,11 @@ import torch.nn.functional as F
 from torch.nn import Linear
 
 
-class SelfAttentionMechanism:
+class AttentionMechanism:
     def __init__(self, feature_dim):
-        # 定义用于计算 Query 的线性变换层，输入和输出维度均为 feature_dim，且不使用偏置项
         self.query_layer = Linear(feature_dim, feature_dim, bias=False).cuda()
-        # 定义用于计算 Key 的线性变换层
         self.key_layer = Linear(feature_dim, feature_dim, bias=False).cuda()
-        # 定义用于计算 Value 的线性变换层
         self.value_layer = Linear(feature_dim, feature_dim, bias=False).cuda()
-        # 计算缩放因子，用于对点积进行归一化，缩放因子为特征维度的平方根
         self.scale = torch.sqrt(torch.tensor(feature_dim, dtype=torch.float32)).cuda()
 
     def compute_attention_weights(self, z_all, zs):
@@ -50,7 +46,7 @@ class SelfAttentionMechanism:
             -1)), f"Value shape mismatch: expected {(batch_size, view_count, V.size(-1))}, got {V.shape}"
 
         # 计算点积得分，通过 `torch.einsum` 实现 Q 和 K 的点积，结果形状为 [batch_size, view_count]
-        # 同时对点积结果除以缩放因子 self.scale，以稳定梯度
+        # 同时对点积结果除以缩放因子 self.scale，以稳定梯度 scores = torch.bmm(Q.unsqueeze(1), K.transpose(1, 2)).squeeze(1) / self.scale
         scores = torch.einsum('bf,bvf->bv', Q, K) / self.scale
 
         # 使用 softmax 函数对每个样本的视图相关性得分进行归一化，生成注意力权重，形状为 [batch_size, view_count]

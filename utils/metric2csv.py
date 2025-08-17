@@ -15,7 +15,7 @@ def find_max_weighted_sum_index(acc_list, nmi_list, pur_list, ari_list, acc_weig
     return max_index
 
 
-def save_lists_to_file(acc_list, nmi_list, pur_list, ari_list, data_name, data_rate, Valid_check_num):
+def save_lists_to_file(acc_list, nmi_list, pur_list, ari_list, loss_list, data_name, data_rate, Valid_check_num):
     # 创建logs文件夹
     csv_path = f'3.csv'
     if not os.path.exists(csv_path):
@@ -28,11 +28,11 @@ def save_lists_to_file(acc_list, nmi_list, pur_list, ari_list, data_name, data_r
     with open(file_path, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
         # 写入表头
-        csvwriter.writerow(['epoch', 'acc', 'nmi', 'pur', 'ari'])
+        csvwriter.writerow(['epoch', 'acc', 'nmi', 'pur', 'ari', 'loss'])
         # 写入数据
         epoch = 1*Valid_check_num
-        for acc, nmi, pur, ari in zip(acc_list, nmi_list, pur_list, ari_list):
-            csvwriter.writerow([epoch, acc, nmi, pur, ari])
+        for acc, nmi, pur, ari, loss in zip(acc_list, nmi_list, pur_list, ari_list, loss_list):
+            csvwriter.writerow([epoch, acc, nmi, pur, ari, loss])
             epoch += 1*Valid_check_num
 
     print(f'Metrics have been saved at {file_path}')
