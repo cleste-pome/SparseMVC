@@ -52,6 +52,6 @@ Late-fused Feature Clustering
 | Global (Y) | 0.5257 | 0.7069 | 0.4001 |   0.5614 |
 +------------+--------+--------+--------+----------+
 
-  3%|▎         | 10/300 [02:41<3:55:28, 48.72s/it]Sparsity ratio(zero(missing)_value(dims)_proportion mean)[view]:[0.0001, 0.0001, 0.3415, 0.6383]
+Sparsity ratio(zero(missing)_value(dims)_proportion mean)[view]:[0.0001, 0.0001, 0.3415, 0.6383]
 ```
 
