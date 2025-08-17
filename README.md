@@ -35,23 +35,23 @@ parser.add_argument("--weight_decay", default=0.0)
 ## 4. Visualization of the training process and automatic data storage: The system automatically saves 1) logs, 2) images, 3) CSV files, and 4) models. It dynamically displays the evaluation metrics and loss changes for each view during training. After training is completed, it generates line plots for the loss function and evaluation metrics.
 
 ```bash
-Pre-train: The Sparse Autoencoder with Adaptive Encoding (SAA)
+Con-train: SAA+CSR+CDA
 
- 67%|██████▋   | 200/300 [01:16<06:25,  3.85s/it]
-Early-fused Feature Clustering
-+-----------+--------+--------+--------+----------+
-| Feature   |    ACC |    NMI |    ARI |   Purity |
-+===========+========+========+========+==========+
-| View 1    | 0.3921 | 0.3081 | 0.1954 |   0.4115 |
-+-----------+--------+--------+--------+----------+
-| View 2    | 0.4602 | 0.4355 | 0.2839 |   0.5063 |
-+-----------+--------+--------+--------+----------+
-| View 3    | 0.4014 | 0.3497 | 0.2252 |   0.4427 |
-+-----------+--------+--------+--------+----------+
-| View 4    | 0.2392 | 0.1324 | 0.0581 |   0.2604 |
-+-----------+--------+--------+--------+----------+
-| z_all     | 0.5275 | 0.4908 | 0.3270 |   0.5647 |
-+-----------+--------+--------+--------+----------+
-Sparsity ratio(zero(missing)_value(dims)_proportion mean)[view]:[0.0004, 0.0004, 0.0026, 0.1253]
+Late-fused Feature Clustering
++------------+--------+--------+--------+----------+
+| Feature    |    ACC |    NMI |    ARI |   Purity |
++============+========+========+========+==========+
+| View 1     | 0.2584 | 0.4996 | 0.1591 |   0.2929 |
++------------+--------+--------+--------+----------+
+| View 2     | 0.2342 | 0.5252 | 0.1509 |   0.2672 |
++------------+--------+--------+--------+----------+
+| View 3     | 0.3584 | 0.5778 | 0.2163 |   0.3949 |
++------------+--------+--------+--------+----------+
+| View 4     | 0.3555 | 0.5786 | 0.2162 |   0.3891 |
++------------+--------+--------+--------+----------+
+| Global (Y) | 0.5257 | 0.7069 | 0.4001 |   0.5614 |
++------------+--------+--------+--------+----------+
+
+  3%|▎         | 10/300 [02:41<3:55:28, 48.72s/it]Sparsity ratio(zero(missing)_value(dims)_proportion mean)[view]:[0.0001, 0.0001, 0.3415, 0.6383]
 ```
 
