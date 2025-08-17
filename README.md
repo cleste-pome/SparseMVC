@@ -44,8 +44,8 @@ parser.add_argument('--sparsity_ratio', type=float, default=0.0)
 ```python
 parser.add_argument('--batch_size', default=256, type=int)
 parser.add_argument("--learning_rate", default=0.0003)
-parser.add_argument("--pre_epochs", default=300)  # 300
-parser.add_argument("--con_epochs", default=300)  # 300
+parser.add_argument("--pre_epochs", default=300)  
+parser.add_argument("--con_epochs", default=300)  
 parser.add_argument("--iter", default=1)
 parser.add_argument("--feature_dim", default=64)
 parser.add_argument("--high_feature_dim", default=20)
@@ -91,7 +91,7 @@ Late-fused Feature Clustering
 
 ## 4. Acknowledgments
 
-Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC), and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions.
+Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC),  [SDMVC](https://github.com/SubmissionsIn/SDMVC) and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions.
 
 ## 5.Citation
 
