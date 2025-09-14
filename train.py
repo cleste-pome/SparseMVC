@@ -194,6 +194,7 @@ if __name__ == '__main__':
                 shuffle=True,
                 drop_last=True)
 
+            # TODO 调整计算评价指标的轮数间隔
             if data_size >= 2500: # large
                 args.con_epochs = 1000
                 pre_check_num = 300
