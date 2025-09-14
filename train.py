@@ -140,7 +140,7 @@ if __name__ == '__main__':
             parser.add_argument('--batch_size', default=256, type=int)
             parser.add_argument("--learning_rate", default=0.0003)
             parser.add_argument("--pre_epochs", default=300)  # 300
-            parser.add_argument("--con_epochs", default=300)  # 300
+            parser.add_argument("--con_epochs", default=300)  # small/large 300/1000
             parser.add_argument("--iter", default=1)
             parser.add_argument("--feature_dim", default=64)
             parser.add_argument("--high_feature_dim", default=20)
@@ -153,13 +153,16 @@ if __name__ == '__main__':
             # TODO 选取missing ratio比例样本的随机(1到view-1)个视图做缺失处理
             parser.add_argument('--missing_ratio', type=float, default=0.0)
             args = parser.parse_args()
+
             device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
             # TODO log创建
             log_path = f'1.logs'
             if not os.path.exists(log_path):
                 os.makedirs(log_path)
             data_ratio = f'{args.noise_ratio}_{args.conflict_ratio}_{args.missing_ratio}'
             logger = Logger.get_logger(__file__, Dataname, data_ratio)
+
             dataset = MATKind(args.dataset, folder_path)
             # 获取数据集中类别的数量
             class_num = dataset.num_classes
@@ -171,6 +174,7 @@ if __name__ == '__main__':
             dims = list(chain.from_iterable(dataset.dims.tolist()))
             index = np.arange(data_size)
             np.random.shuffle(index)
+
             # TODO batch size
             if Dataname == 'MSRCV1':
                 args.batch_size = 128
@@ -178,6 +182,7 @@ if __name__ == '__main__':
                 args.batch_size = 256
             else:
                 args.batch_size = data_size
+
             # 数据预处理
             dataset.postprocessing(index,
                                    addNoise=True, sigma=0.5, ratio_noise=args.noise_ratio,
@@ -188,6 +193,15 @@ if __name__ == '__main__':
                 batch_size=args.batch_size,
                 shuffle=True,
                 drop_last=True)
+
+            if data_size >= 2500: # large
+                args.con_epochs = 1000
+                pre_check_num = 300
+                valid_check_num = 100
+            else: # small
+                pre_check_num = 100
+                valid_check_num = 10
+
             pth_path = f'4.models'
             if not os.path.exists(f'./{pth_path}'):
                 os.makedirs(f'./{pth_path}')
@@ -198,6 +212,7 @@ if __name__ == '__main__':
             # 生成文件名，包含当前时间，以确保文件名唯一
             current_time = datetime.now().strftime('%Y%m%d-%H%M%S')
             imgs_path = f'2.results_imgs/{Dataname}_{current_time}'
+
             for i in range(T):
                 print(f"ROUND:{i + 1}[seed:{seed}][learning rate:{lr}]")
                 # 确定本次循环测试的随机数种子：1.固定每次结果 2.保证不同次结果不同
@@ -215,10 +230,11 @@ if __name__ == '__main__':
                 state = model.state_dict()
                 optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=args.weight_decay)
                 contrastiveloss = ContrastiveLoss(args.batch_size, device).to(device)
+
                 for epoch in tqdm(range(args.pre_epochs)):
                     preloss = pretrain(epoch)  # 1.pre-train
                     preloss_list.append(preloss)
-                    if (epoch + 1) % 100 == 0:  # TODO pre
+                    if (epoch + 1) % pre_check_num == 0:  # TODO pre
                         acc, nmi, pur, ari = valid(model, device, dataset, view, data_size, class_num,
                                                    pre_train=True,
                                                    con_train=False)
@@ -228,6 +244,7 @@ if __name__ == '__main__':
                         pur_list.append(pur)
                         ari_list.append(ari)
                 # plot_acc(imgs_path, preloss_list, Dataname, 'pretrain loss')
+
                 for epoch in tqdm(range(args.con_epochs)):
                     epoch = args.pre_epochs + epoch
                     plot_SDD = False
@@ -235,9 +252,6 @@ if __name__ == '__main__':
                         plot_SDD = True
                     conloss = contrastive_train(epoch, Dataname, plot_SDD)  # 2.contrastive train
                     conloss_list.append(conloss)
-                    valid_check_num = 10
-                    if args.con_epochs >= 1000:
-                        valid_check_num = 100
                     if (epoch + 1) % valid_check_num == 0:  # TODO con
                         acc, nmi, pur, ari = valid(model, device, dataset, view, data_size, class_num,
                                                    pre_train=False,
@@ -251,6 +265,7 @@ if __name__ == '__main__':
                                                             pur_weight=0.25, ari_weight=0.25)
                 # plot_acc(imgs_path, conloss_list, Dataname, 'con loss')
                 loss_list = preloss_list + conloss_list
+
                 # TODO 1.保存最后次最后一轮的权重文件(.pth)
                 state = model.state_dict()
                 current_time = datetime.now().strftime('%Y%m%d-%H%M%S')
@@ -281,6 +296,7 @@ if __name__ == '__main__':
                 max_index = find_max_weighted_sum_index(acc_list, nmi_list, pur_list, ari_list,
                                                         acc_weight=0.25, nmi_weight=0.25,
                                                         pur_weight=0.25, ari_weight=0.25)
+
                 # TODO 2.最好一轮(不建议这样做，除非你有early stop的理由)
                 info = {"dataset": Dataname,
                         "iter": i + 1,
@@ -299,6 +315,7 @@ if __name__ == '__main__':
                 lr = "{:.5f}".format(lr)
                 lr = float(lr)
                 del info
+
             # TODO [一般是取平均值，但考虑到需求下面实现了取最大值:D] 找到 acc_l 中最后一个元素最大的列表元素的位次（默认训练一次，所以l_max=0）
             l_max = find_max_last_element_index(acc_l)
             acc_list, nmi_list, pur_list, ari_list, loss_list = acc_l[l_max], nmi_l[l_max], pur_l[l_max], ari_l[l_max], loss_l[l_max]
