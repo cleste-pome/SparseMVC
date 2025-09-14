@@ -4,16 +4,8 @@ from torch.nn.functional import normalize
 from utils.Sample_SelfWeight import AttentionMechanism
 
 
-def zero_value_proportion_statistics_once():
-    # 存储计算结果的缓存
-    _cached_proportions_stats = {}
-
-    def compute(xs):
-        nonlocal _cached_proportions_stats
-        # 如果已经计算过，直接返回缓存的结果
-        if _cached_proportions_stats:
-            return _cached_proportions_stats
-
+def zero_value_proportion_statistics_once(xs):
+        # 创建字典（dict）用于存储每个视图
         stats_proportions = {}
 
         # 遍历每个视图
@@ -40,10 +32,7 @@ def zero_value_proportion_statistics_once():
             stats_proportions[key] = (mean_proportion, variance_proportion)
 
         # 缓存计算结果
-        _cached_proportions_stats = stats_proportions
-        return _cached_proportions_stats
-
-    return compute
+        return stats_proportions
 
 
 # 编码器类
@@ -152,9 +141,7 @@ class Network(nn.Module):
         return normalize(self.feature_fusion_module(weighted_sum), dim=1)  # 归一化并返回融合后的特征
 
     def forward(self, xs):
-        # 创建一个计算函数，它只会计算一次
-        compute_stats = zero_value_proportion_statistics_once()  # 第一次调用会计算并缓存
-        proportions_stats = compute_stats(xs)
+        proportions_stats = zero_value_proportion_statistics_once(xs)
         # 输出结果
         # for key, (mean, variance, first_n) in proportions_stats.items():
         #     print(f"{key}:")
