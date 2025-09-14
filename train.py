@@ -137,10 +137,10 @@ if __name__ == '__main__':
             parser = argparse.ArgumentParser(description='train')
             parser.add_argument('--dataset', default=Dataname)
             # 超参数
-            parser.add_argument('--batch_size', default=256, type=int)
+            parser.add_argument('--batch_size', default=256, type=int) # args.batch_size = data_size
             parser.add_argument("--learning_rate", default=0.0003)
-            parser.add_argument("--pre_epochs", default=300)  # 300
-            parser.add_argument("--con_epochs", default=300)  # small/large 300/1000
+            parser.add_argument("--pre_epochs", default=300)
+            parser.add_argument("--con_epochs", default=300)
             parser.add_argument("--iter", default=1)
             parser.add_argument("--feature_dim", default=64)
             parser.add_argument("--high_feature_dim", default=20)
@@ -176,9 +176,7 @@ if __name__ == '__main__':
             np.random.shuffle(index)
 
             # TODO batch size
-            if Dataname == 'MSRCV1':
-                args.batch_size = 128
-            elif Dataname == 'NUSWIDEOBJ':
+            if Dataname == 'NUSWIDEOBJ': # OOM
                 args.batch_size = 256
             else:
                 args.batch_size = data_size
@@ -194,9 +192,9 @@ if __name__ == '__main__':
                 shuffle=True,
                 drop_last=True)
 
-            # TODO 调整计算评价指标的轮数间隔
+            # TODO 调整计算评价指标的轮数间隔，valid_check_num有条件的话最好设置为1
             if data_size >= 2500: # large
-                args.con_epochs = 1000
+                args.con_epochs = 1000 # small/large 300/1000
                 pre_check_num = 300
                 valid_check_num = 100
             else: # small
