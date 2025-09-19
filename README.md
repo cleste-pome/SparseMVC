@@ -108,11 +108,12 @@ Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://githu
 If you use our code framework or get inspired by our work (hopefully as a positive example, but if it’s a negative example, that's fine too(*≧ω≦)), please cite our paper! 
 
 ```latex
-@inproceedings{liu2025sparsemvc,
-  author = {Ruimeng Liu and Xin Zou and Chang Tang and Xiao Zheng and Xingchen Hu and Kun Sun and Xinwang Liu},
-  title = {SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering},
-  booktitle = {Advances in Neural Information Processing Systems 39},
-  year = {2025},
-  pages = {}
+@article{liu2025sparsemvc,
+  title={SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering},
+  author={Ruimeng Liu and Xin Zou and Chang Tang and Xiao Zheng and Xingchen Hu and Kun Sun and Xinwang Liu},
+  journal={Advances in Neural Information Processing Systems},
+  volume={},
+  pages={},
+  year={2025}
 }
 ```
