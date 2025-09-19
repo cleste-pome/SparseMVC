@@ -1,4 +1,4 @@
-# 🌟 [NeurIPS 2025 Spotlight] SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering
+# **[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
 
 ## 📑 Introduction
 
