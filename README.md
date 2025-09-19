@@ -1,10 +1,16 @@
-# SparseMVC
+# 🌟 [NeurIPS 2025 Spotlight] SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering
 
-NeurIPS 2025 spotlight
+## 📑 Introduction
 
-I have attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (paper is on road).(｡･∀･)ﾉﾞ
+> **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
+>
+> [Ruimeng Liu](https://github.com/cleste-pome), Xin Zou, Chang Tang, Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
+>
+> 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
 
 <img src="SparseMVC_logo.png" alt="SparseMVC" style="zoom:50%;" />
+
+I have also attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (paper is on road).(｡･∀･)ﾉﾞ
 
 Just getting started, to be continued.
 
@@ -102,5 +108,11 @@ Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://githu
 If you use our code framework or get inspired by our work (hopefully as a positive example, but if it’s a negative example, that's fine too(*≧ω≦)), please cite our paper! 
 
 ```latex
-
+@inproceedings{liu2025sparsemvc,
+  author = {Ruimeng Liu and Xin Zou and Chang Tang and Xiao Zheng and Xingchen Hu and Kun Sun and Xinwang Liu},
+  title = {SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering},
+  booktitle = {Advances in Neural Information Processing Systems 39},
+  year = {2025},
+  pages = {}
+}
 ```
