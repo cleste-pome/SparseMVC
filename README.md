@@ -3,9 +3,9 @@
 ## 📑 Introduction
 
 > **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
->📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
+> 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
 > 
-> [Ruimeng Liu](https://github.com/cleste-pome), Xin Zou, Chang Tang, Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
+> Authors: [Ruimeng Liu](https://github.com/cleste-pome), Xin Zou, Chang Tang, Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
 >
 
 <img src="SparseMVC_logo.png" alt="SparseMVC" style="zoom:50%;" />
