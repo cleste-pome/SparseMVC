@@ -4,9 +4,8 @@
 
 > **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
 > 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
-> 
-> Authors: [Ruimeng Liu](https://github.com/cleste-pome), Xin Zou, Chang Tang, Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
 >
+> Authors: [Ruimeng Liu](https://github.com/cleste-pome), Xin Zou, Chang Tang, Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
 
 <img src="images/logo.png" alt="SparseMVC" style="zoom:50%;" />
 
@@ -16,7 +15,9 @@ Just getting started, to be continued.
 
 ## 1. Workflow of SparseMVC
 
-The framework of SparseMVC.
+This paper highlights a frequently overlooked issue in deep multi-view learning: varying sparsity ratios across views. Therefore, we propose SparseMVC built on sparse autoencoder with adaptive constraints. To further mitigate the encoding disparity introduced during early fusion, we incorporate correlation-informed dynamic reweighting that balances the correlation between global and view-specific features beyond the weighting based on fundamental networks. With the additional help of distribution alignment module, SparseMVC facilitates effective distribution alignment during late fusion. Comprehensive experiments and detailed dissections of each module validate the efficacy of SparseMVC. We hope this work inspires greater attention to the intrinsic characteristics of data and to the design of architectures driven by data.
+
+<img src="images/MSRCV1_clustering_performance.png" alt="SparseMVC" style="zoom:50%;" />
 
 ## 2. Requirements
 
