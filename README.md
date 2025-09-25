@@ -6,7 +6,6 @@
 > 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
 >
 > Authors: [Ruimeng Liu](https://github.com/cleste-pome), Xin Zou, Chang Tang, Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
-> 
 
 Our approach focuses on view-level structural sparsity, specifically the sparsity variation across different views within the same multi-view sample. This differs from data-level sparsity methods that typically apply uniform sparse encoding across all views without considering inter-view heterogeneity. To address sparsity variation, we proposed SparseMVC, which leverages an adaptive encoding strategy that uses the sparsity ratio of each view as prior knowledge, enabling the encoder to switch between standard and sparse forms with appropriate constraint strengths. Additionally, we introduce a series of interdependent mechanisms to mitigate the side effects of representational divergence caused by non-uniform encoding. Specifically, a correlation-guided fusion strategy leverages global-to-local feature relationships from the early stages to guide the weighting of local features in late fusion. Moreover, a distribution alignment module structurally constrains the fused representations, enhancing cross-view complementarity in the final stage. Comprehensive experiments and detailed dissections of each module validate the efficacy of SparseMVC. We hope this work inspires greater attention to the intrinsic characteristics of data and to the design of architectures driven by data.
 
@@ -17,11 +16,12 @@ I have also attempted to build a training framework for multi-view learning (the
 Just getting started, to be continued.
 
 ## 1. Framework of SparseMVC
+
 <img src="images/sparsity_ratios.png" alt="SparseMVC" style="zoom:50%;" />
-Sparsity ratios across views in multi-view datasets. \textsc{Top box plot} illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). \textsc{Bottom bar plot} presents the sparsity ratios for each view within each dataset. The cross-view sparsity ratios have been processed to improve visualization using the sigmoid function.
+Sparsity ratios across views in multi-view datasets. **Top box plot** illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). **Bottom bar plot**}presents the sparsity ratios for each view within each dataset. The cross-view sparsity ratios have been processed to improve visualization using the sigmoid function.
 
 <img src="images/SparseMVC_framework.png" alt="SparseMVC" style="zoom:50%;" />
-Overview of \textbf{SparseMVC}, a framework designed to address varying sparsity across views.
+Overview of **SparseMVC**, a framework designed to address varying sparsity across views.
 
 <img src="images/MSRCV1_clustering_performance.png" alt="SparseMVC" style="zoom:50%;" />
 Convergence analysis of the training process. The left area of the vertical black dashed line represents the pre-training phase, while the right area stands for the view alignment training process.
