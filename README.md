@@ -17,8 +17,14 @@ I have also attempted to build a training framework for multi-view learning (the
 Just getting started, to be continued.
 
 ## 1. Framework of SparseMVC
+<img src="images/sparsity_ratios.png" alt="SparseMVC" style="zoom:50%;" />
+Sparsity ratios across views in multi-view datasets. \textsc{Top box plot} illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). \textsc{Bottom bar plot} presents the sparsity ratios for each view within each dataset. The cross-view sparsity ratios have been processed to improve visualization using the sigmoid function.
+
+<img src="images/SparseMVC_framework.png" alt="SparseMVC" style="zoom:50%;" />
+Overview of \textbf{SparseMVC}, a framework designed to address varying sparsity across views.
 
 <img src="images/MSRCV1_clustering_performance.png" alt="SparseMVC" style="zoom:50%;" />
+Convergence analysis of the training process. The left area of the vertical black dashed line represents the pre-training phase, while the right area stands for the view alignment training process.
 
 ## 2. Requirements
 
