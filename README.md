@@ -1,6 +1,6 @@
 # **[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
 
-## 📑 1.Introduction
+## 1.📑Introduction
 
 > **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
 > 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
@@ -16,17 +16,17 @@ I have also attempted to build a training framework for multi-view learning (the
 
 Just getting started, to be continued.
 
-## 2. Framework of SparseMVC
+## 2.🕸️SparseMVC
 <img src="images/sparsity_ratios.png" alt="SparseMVC" style="zoom:50%;" />
-Sparsity ratios across views in multi-view datasets. **Top box plot** illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). **Bottom bar plot** presents the sparsity ratios for each view within each dataset. The cross-view sparsity ratios have been processed to improve visualization using the sigmoid function.
+Sparsity ratios across views in multi-view datasets. Top box plot illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). Bottom bar plot presents the sparsity ratios for each view within each dataset. The cross-view sparsity ratios have been processed to improve visualization using the sigmoid function.
 
 <img src="images/SparseMVC_framework.png" alt="SparseMVC" style="zoom:50%;" />
-Overview of **SparseMVC**, a framework designed to address varying sparsity across views.
+Overview of SparseMVC, a framework designed to address varying sparsity across views.
 
 <img src="images/MSRCV1_clustering_performance.png" alt="SparseMVC" style="zoom:50%;" />
 Convergence analysis of the training process. The left area of the vertical black dashed line represents the pre-training phase, while the right area stands for the view alignment training process.
 
-## 3. Framework User Guide
+## 3.💻User Guide
 
 Multi-View Clustering Code Framework
 
@@ -127,3 +127,4 @@ If you use our code framework or get inspired by our work (hopefully as a positi
   year={2025}
 }
 ```
+
