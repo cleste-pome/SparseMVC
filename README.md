@@ -6,6 +6,8 @@
 > 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
 >
 > Authors: [Ruimeng Liu](https://github.com/cleste-pome), Xin Zou, Chang Tang, Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
+> 
+> This paper highlights a frequently overlooked issue in deep multi-view learning: varying sparsity ratios across views. Therefore, we systematically define, quantify, and analyze cross-view sparsity variation as a fundamental characteristic of multi-view data. Our entire framework, SparseMVC, is designed to handle view-level sparsity variations with a complete data-driven and tightly integrated architecture. To tackle sparsity variation, we propose an adaptive encoding mechanism that uses the sparsity ratio of each view as prior knowledge, enabling the encoder to switch between standard and sparse forms with appropriate constraint strengths. Additionally, we introduce a series of interdependent mechanisms to mitigate the side effects of representational divergence caused by non-uniform encoding. Specifically, a correlation-guided fusion strategy leverages global-to-local feature relationships from the early stages to guide the weighting of local features in late fusion. Moreover, a distribution alignment module structurally constrains the fused representations, enhancing cross-view complementarity in the final stage. Comprehensive experiments and detailed dissections of each module validate the efficacy of SparseMVC. We hope this work inspires greater attention to the intrinsic characteristics of data and to the design of architectures driven by data.
 
 <img src="images/logo.png" alt="SparseMVC" style="zoom:50%;" />
 
@@ -13,9 +15,7 @@ I have also attempted to build a training framework for multi-view learning (the
 
 Just getting started, to be continued.
 
-## 1. Workflow of SparseMVC
-
-This paper highlights a frequently overlooked issue in deep multi-view learning: varying sparsity ratios across views. Therefore, we propose SparseMVC built on sparse autoencoder with adaptive constraints. To further mitigate the encoding disparity introduced during early fusion, we incorporate correlation-informed dynamic reweighting that balances the correlation between global and view-specific features beyond the weighting based on fundamental networks. With the additional help of distribution alignment module, SparseMVC facilitates effective distribution alignment during late fusion. Comprehensive experiments and detailed dissections of each module validate the efficacy of SparseMVC. We hope this work inspires greater attention to the intrinsic characteristics of data and to the design of architectures driven by data.
+## 1. Framework of SparseMVC
 
 <img src="images/MSRCV1_clustering_performance.png" alt="SparseMVC" style="zoom:50%;" />
 
