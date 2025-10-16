@@ -3,7 +3,7 @@
 ## 1.📑Introduction
 
 > **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
-> 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F))
+> 📚[OpenReview](https://openreview.net/group?id=NeurIPS.cc/2025/Conference/Authors&referrer=%5BHomepage%5D(%2F)) [NeurIPS](https://neurips.cc/virtual/2025/poster/117045)
 >
 > Authors: [Ruimeng Liu](https://github.com/cleste-pome), [Xin Zou](https://github.com/obananas), [Chang Tang](https://github.com/ChangTang), Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
 >
@@ -127,5 +127,6 @@ If you use our code framework or get inspired by our work (hopefully as a positi
   year={2025}
 }
 ```
+
 
 
