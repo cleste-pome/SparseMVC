@@ -10,7 +10,7 @@
 
 I have also attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (papers are on road).(｡･∀･)ﾉﾞ
 
-ps. 我给代码加了详细的中文注释的。说中文的兄弟姐妹们我懂你们，咱们作为非英语母语者在面对新研究领域的项目时太不容易了，因此我尽我所能给我的开源项目加上了中文注释（毕竟我也是经历看懂论文却看不懂代码复现不了项目的痛苦），希望能帮到屏幕对面的你！
+ps. 我给所有核心代码加了详细的中文注释。说中文的兄弟姐妹们我懂你们，咱们作为非英语母语者在面对新研究领域的项目时太不容易了，因此我尽我所能给我的开源项目加上了中文注释（毕竟我也是经历看懂论文却看不懂代码复现不了项目的痛苦），希望能帮到屏幕对面的你！
 
 <img src="images/logo.png" alt="SparseMVC" style="zoom:50%;" />
 
@@ -127,6 +127,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
   year={2025}
 }
 ```
+
 
 
 
