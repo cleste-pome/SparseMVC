@@ -1,4 +1,4 @@
-# **[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
+.# **[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
 
 ## 1.📑Introduction
 
@@ -129,7 +129,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
   year={2025}
 }
 ```
-## Star History
+
 
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
