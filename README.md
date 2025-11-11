@@ -3,12 +3,12 @@
 ## 1.📑Introduction
 
 > **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
-> 📚[Paper](https://github.com/cleste-pome/SparseMVC/releases/download/Slides/NeurIPS_CameraReady_SparseMVC.pdf) 🌐[NeurIPS](https://neurips.cc/virtual/2025/poster/117045)
+> 📚[Paper](https://github.com/cleste-pome/SparseMVC/releases/download/Slides/SparseMVC_NeurIPS2025_Paper.pdf) 🌐[NeurIPS](https://neurips.cc/virtual/2025/poster/117045)
 >
 > Authors: [Ruimeng Liu](https://github.com/cleste-pome), [Xin Zou](https://github.com/obananas), [Chang Tang](https://github.com/ChangTang), Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
 >
 
-I have also attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (papers are on road).(｡･∀･)ﾉﾞ
+I have attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (papers are on road).(｡･∀･)ﾉﾞ
 
 Just getting started, to be continued.
 
@@ -134,6 +134,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
