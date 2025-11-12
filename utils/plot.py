@@ -66,7 +66,14 @@ def plot_acc(imgs_path, acc_list, dataset_name, name, Valid_check_num=1):
 
     # 保存图表为PNG文件，指定分辨率为300dpi
     plt.savefig(filename, dpi=300)
-    # 显示图表
-    # plt.show() # Pycharm中Matplotlib绘图弹窗的问题解决：只有pycharm专业版才有sciview窗口/(ㄒoㄒ)/~~
+
+    # 显示图表，设置为非阻塞
+    plt.show(block=False) # Pycharm中Matplotlib绘图弹窗的问题解决：只有pycharm专业版才有sciview窗口/(ㄒoㄒ)/~~
+    # 窗口显示n秒后自动继续执行
+    plt.pause(2)
+    # 自动关闭窗口
+    plt.close()
+    
     # 打印保存的图表文件名
     print(f'Plot saved as {filename}')
+
