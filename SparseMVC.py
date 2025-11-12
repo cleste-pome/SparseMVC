@@ -43,13 +43,13 @@ class Encoder(nn.Module):
             nn.Linear(input_dim, 500),# 线性层，将输入维度转换为500
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(500, 500),# 线性层，特征维度不变
+            nn.Linear(500, 500),# 线性层，维度不变
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(500, 2000),# 线性层，将特征维度转转换2000
+            nn.Linear(500, 2000),# 线性层，将维度转换为2000
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(2000, feature_dim)# 线性层，将特征维度转换为编码维度
+            nn.Linear(2000, feature_dim)# 线性层，将维度转换为特征维度
         )
         self.hidden_layer_activation = None  # 用于保存隐藏层激活值
 
@@ -68,16 +68,16 @@ class Decoder(nn.Module):
     def __init__(self, input_dim, feature_dim, dropout_rate=0.0):
         super(Decoder, self).__init__()  # 调用父类的构造函数
         self.decoder = nn.Sequential(
-            nn.Linear(feature_dim, 2000),  # 线性层，将编码维度转换为2000
+            nn.Linear(feature_dim, 2000),  # 线性层，将特征维度转换为2000
             nn.ReLU(),  # 激活函数ReLU
             nn.Dropout(dropout_rate),
-            nn.Linear(2000, 500),  # 线性层，将特征维度转换为500
+            nn.Linear(2000, 500),  # 线性层，将维度转换为500
             nn.ReLU(),  # 激活函数ReLU
             nn.Dropout(dropout_rate),
-            nn.Linear(500, 500),  # 线性层，特征维度不变
+            nn.Linear(500, 500),  # 线性层，维度不变
             nn.ReLU(),  # 激活函数ReLU
             nn.Dropout(dropout_rate),
-            nn.Linear(500, input_dim)  # 线性层，将特征维度转换为输入维度
+            nn.Linear(500, input_dim)  # 线性层，将维度转换为输入维度
         )
 
     def forward(self, x):
@@ -178,4 +178,5 @@ class Network(nn.Module):
         H = self.feature_fusion(zs, Wz)  # 全局特征融合
 
         return xrs, zs, rs, H, xr_all, z_all, activation, means  # 返回重建后的输入、编码特征、视角一致特征和全局融合特征
+
 
