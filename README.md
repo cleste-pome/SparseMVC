@@ -1,4 +1,4 @@
-<img width="1030" height="502" alt="image" src="https://github.com/user-attachments/assets/ca2fb1d9-3460-413d-9917-f227a2df7e2f" />**[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
+**[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
 
 ## 1.📑Introduction
 
@@ -118,7 +118,7 @@ Late-fused Feature Clustering
 
 ## 4. 🙏Acknowledgments
 
-Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC),  [SDMVC](https://github.com/SubmissionsIn/SDMVC) and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions. 
+Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC),  [SDMVC](https://github.com/SubmissionsIn/SDMVC), [MVCAN](https://github.com/SubmissionsIn/MVCAN) and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions. I would also like to thank my colleagues Xiao He and Zhenglai Li for their valuable guidance.
 
 ## 5.Citation
 
@@ -139,6 +139,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
