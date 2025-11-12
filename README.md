@@ -1,9 +1,9 @@
-**[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
+<img width="1030" height="502" alt="image" src="https://github.com/user-attachments/assets/ca2fb1d9-3460-413d-9917-f227a2df7e2f" />**[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
 
 ## 1.📑Introduction
 
 > **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
-> 📚[Paper](https://www.kdocs.cn/l/cj6CUBIYQdiK) 🌐[NeurIPS](https://neurips.cc/virtual/2025/poster/117045)
+> 📚[Paper](https://www.kdocs.cn/l/cj6CUBIYQdiK)[[PDF](https://github.com/cleste-pome/SparseMVC/releases/download/Slides/SparseMVC_NeurIPS2025_Paper.pdf)] 🌐[NeurIPS](https://neurips.cc/virtual/2025/poster/117045)
 >
 > Authors: [Ruimeng Liu](https://github.com/cleste-pome), [Xin Zou](https://github.com/obananas), [Chang Tang](https://github.com/ChangTang), Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
 >
@@ -22,10 +22,13 @@ Our approach focuses on view-level structural sparsity, specifically the sparsit
 
 ## 2.🕸️SparseMVC
 <img src="images/sparsity_ratios.png" alt="SparseMVC" style="zoom:50%;" />
-Sparsity ratios across views in multi-view datasets. Top box plot illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). Bottom bar plot presents the sparsity ratios for each view within each dataset. The cross-view sparsity ratios have been processed to improve visualization using the sigmoid function.
+Sparsity ratios across views in multi-view datasets. Top box plot illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). Bottom bar plot presents the sparsity ratios for each view within each dataset. The sparsity ratios in Figure are transformed using the sigmoid function, shifting the baseline from 0 (the bottom of the image) to 0.5 (the middle of the image) for better visualization.
 
 <img src="images/SparseMVC_framework.png" alt="SparseMVC" style="zoom:50%;" />
 Overview of SparseMVC, a framework designed to address varying sparsity across views.
+
+<img src="images/SparseMVC_method.png" alt="SparseMVC" style="zoom:50%;" />
+SparseMVC incorporates Sparse Autoencoder with Adaptive Constraints, Correlation-Informed Sample Reweighting, and Cross-view Distribution Alignment.
 
 <img src="images/MSRCV1_clustering_performance.png" alt="SparseMVC" style="zoom:50%;" />
 Convergence analysis of the training process. The left area of the vertical black dashed line represents the pre-training phase, while the right area stands for the view alignment training process.
@@ -53,13 +56,13 @@ Simply package the dataset in .mat format and place it in the "datasets" folder 
 ### 3.2 Data processing
 
 ```python
-# TODO 中文：选取noise ratio比例的样本，随机(1到view-1)个视图做添加高斯噪声处理 English：Select samples with a noise ratio, and randomly apply Gaussian noise processing to (1 to view-1) views
+# 选取noise ratio比例的样本，随机(1到view-1)个视图做添加高斯噪声处理 (Select samples with a noise ratio, and randomly apply Gaussian noise processing to (1 to view-1) views)
 parser.add_argument('--noise_ratio', type=float, default=0.0)
-# TODO 中文：选取conflict ratio比例的样本，随机选择一个视图的数据用另一个类别的样本的同视图数据替换 English：Select samples with a conflict ratio, and randomly choose data from one view to replace it with the same view data from a sample of another category
+# 选取conflict ratio比例的样本，随机选择一个视图的数据用另一个类别的样本的同视图数据替换 (Select samples with a conflict ratio, and randomly choose data from one view to replace it with the same view data from a sample of another category)
 parser.add_argument('--conflict_ratio', type=float, default=0.0)
-# TODO 中文：选取missing ratio比例样本的随机(1到view-1)个视图做缺失处理 English：Select samples with a missing ratio, and randomly apply missing data processing to (1 to view-1) views
+# 选取missing ratio比例样本的随机(1到view-1)个视图做缺失处理 (Select samples with a missing ratio, and randomly apply missing data processing to (1 to view-1) views)
 parser.add_argument('--missing_ratio', type=float, default=0.0)
-# TODO 中文：选取sparsity ratio比例维度的随机(1到dims-1)个维度做置0处理 English：Select dimensions with a sparsity ratio, and randomly apply zeroing to (1 to dims-1) dimensions
+# 选取sparsity ratio比例维度的随机(1到dims-1)个维度做置0处理 (Select dimensions with a sparsity ratio, and randomly apply zeroing to (1 to dims-1) dimensions)
 parser.add_argument('--sparsity_ratio', type=float, default=0.0)
 ```
 
@@ -115,7 +118,7 @@ Late-fused Feature Clustering
 
 ## 4. 🙏Acknowledgments
 
-Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC),  [SDMVC](https://github.com/SubmissionsIn/SDMVC) and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions.
+Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC),  [SDMVC](https://github.com/SubmissionsIn/SDMVC) and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions. 
 
 ## 5.Citation
 
@@ -136,6 +139,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
