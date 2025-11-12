@@ -137,21 +137,21 @@ if __name__ == '__main__':
             parser = argparse.ArgumentParser(description='train')
             parser.add_argument('--dataset', default=Dataname)
             # 超参数
-            parser.add_argument('--batch_size', default=256, type=int) # args.batch_size = data_size
-            parser.add_argument("--learning_rate", default=0.0003)
-            parser.add_argument("--pre_epochs", default=300)
-            parser.add_argument("--con_epochs", default=300)
-            parser.add_argument("--iter", default=1)
-            parser.add_argument("--feature_dim", default=64)
-            parser.add_argument("--high_feature_dim", default=20)
-            parser.add_argument("--seed", default=50)
-            parser.add_argument("--weight_decay", default=0.0)
+            parser.add_argument('--batch_size', default=256, type=int) # args.batch_size = data_size fixed
+            parser.add_argument("--learning_rate", default=0.0003) # fixed
+            parser.add_argument("--pre_epochs", default=300) # fixed
+            parser.add_argument("--con_epochs", default=300) # small or big fixed
+            parser.add_argument("--iter", default=1) # manually set
+            parser.add_argument("--feature_dim", default=64) # fixed
+            parser.add_argument("--high_feature_dim", default=20) # fixed
+            parser.add_argument("--seed", default=50) # fixed
+            parser.add_argument("--weight_decay", default=0.0) # specified
             # TODO 选取noise ratio比例的样本，随机(1到view-1)个视图做添加高斯噪声处理
-            parser.add_argument('--noise_ratio', type=float, default=0.0)
+            parser.add_argument('--noise_ratio', type=float, default=0.0) # specified
             # TODO 选取conflict ratio比例的样本，随机选择一个视图的数据用另一个类别的样本的同视图数据替换
-            parser.add_argument('--conflict_ratio', type=float, default=0.0)
+            parser.add_argument('--conflict_ratio', type=float, default=0.0) # specified
             # TODO 选取missing ratio比例样本的随机(1到view-1)个视图做缺失处理
-            parser.add_argument('--missing_ratio', type=float, default=0.0)
+            parser.add_argument('--missing_ratio', type=float, default=0.0) # specified
             args = parser.parse_args()
 
             device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -340,3 +340,4 @@ if __name__ == '__main__':
         else:
             print(f'Non-MAT file. Please convert the dataset to multi-view one-dimensional MAT format.')
         data_iter += 1
+
