@@ -40,22 +40,22 @@ class Encoder(nn.Module):
     def __init__(self, input_dim, feature_dim, dropout_rate=0.0):
         super(Encoder, self).__init__()
         self.encoder = nn.Sequential(
-            nn.Linear(input_dim, 500),
+            nn.Linear(input_dim, 500),# 线性层，将输入维度转换为500
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(500, 500),
+            nn.Linear(500, 500),# 线性层，特征维度不变
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(500, 2000),
+            nn.Linear(500, 2000),# 线性层，将特征维度转转换2000
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(2000, feature_dim)
+            nn.Linear(2000, feature_dim)# 线性层，将特征维度转换为编码维度
         )
         self.hidden_layer_activation = None  # 用于保存隐藏层激活值
 
     def forward(self, x):
         # 前向传播时，保存500维的隐藏层激活值用于稀疏约束
-        x = nn.ReLU()(self.encoder[0](x))  # 第一层
+        x = nn.ReLU()(self.encoder[0](x))  
         self.hidden_layer_activation = x  # 保存激活值
         for i in range(1, len(self.encoder)):
             x = self.encoder[i](x)
@@ -68,16 +68,16 @@ class Decoder(nn.Module):
     def __init__(self, input_dim, feature_dim, dropout_rate=0.0):
         super(Decoder, self).__init__()  # 调用父类的构造函数
         self.decoder = nn.Sequential(
-            nn.Linear(feature_dim, 2000),  # 线性层，将特征维度转换为2000
+            nn.Linear(feature_dim, 2000),  # 线性层，将编码维度转换为2000
             nn.ReLU(),  # 激活函数ReLU
             nn.Dropout(dropout_rate),
-            nn.Linear(2000, 500),  # 线性层，将维度转换为500
+            nn.Linear(2000, 500),  # 线性层，将特征维度转换为500
             nn.ReLU(),  # 激活函数ReLU
             nn.Dropout(dropout_rate),
-            nn.Linear(500, 500),  # 线性层，维度不变
+            nn.Linear(500, 500),  # 线性层，特征维度不变
             nn.ReLU(),  # 激活函数ReLU
             nn.Dropout(dropout_rate),
-            nn.Linear(500, input_dim)  # 线性层，将维度转换为输入维度
+            nn.Linear(500, input_dim)  # 线性层，将特征维度转换为输入维度
         )
 
     def forward(self, x):
@@ -178,3 +178,4 @@ class Network(nn.Module):
         H = self.feature_fusion(zs, Wz)  # 全局特征融合
 
         return xrs, zs, rs, H, xr_all, z_all, activation, means  # 返回重建后的输入、编码特征、视角一致特征和全局融合特征
+
