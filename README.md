@@ -1,9 +1,9 @@
-**[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
+# **[NeurIPS 2025 ✨Spotlight]**  **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering** 🚀
 
 ## 1.📑Introduction
 
 > **SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering**
-> 📚[Paper](https://github.com/cleste-pome/SparseMVC/releases/download/Slides/SparseMVC_NeurIPS2025_Paper.pdf) 🌐[NeurIPS](https://neurips.cc/virtual/2025/poster/117045)
+> 📚[Paper](https://www.kdocs.cn/l/cj6CUBIYQdiK) 🌐[NeurIPS](https://neurips.cc/virtual/2025/poster/117045)
 >
 > Authors: [Ruimeng Liu](https://github.com/cleste-pome), [Xin Zou](https://github.com/obananas), [Chang Tang](https://github.com/ChangTang), Xiao Zheng, Xingchen Hu, Kun Sun, Xinwang Liu
 >
@@ -28,11 +28,13 @@ Overview of SparseMVC, a framework designed to address varying sparsity across v
 <img src="images/MSRCV1_clustering_performance.png" alt="SparseMVC" style="zoom:50%;" />
 Convergence analysis of the training process. The left area of the vertical black dashed line represents the pre-training phase, while the right area stands for the view alignment training process.
 
+More details can be found in the 🎞️slides and 📰poster.
+
 ## 3.💻User Guide
 
 Multi-View Clustering Code Framework
 
- **Requirements**
+ **⚙️Requirements**
 
 - python==3.8.15
 
@@ -75,7 +77,7 @@ parser.add_argument("--seed", default=50)
 parser.add_argument("--weight_decay", default=0.0)
 ```
 
-### 3.4 Visualization of the training process and automatic data storage
+### 3.4 📈Visualization of the training process and automatic data storage
 
 The system automatically saves 
 
@@ -111,7 +113,7 @@ Late-fused Feature Clustering
 +------------+--------+--------+--------+----------+
 ```
 
-## 4. Acknowledgments
+## 4. 🙏Acknowledgments
 
 Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://github.com/SongwuJob/SCMVC),  [SDMVC](https://github.com/SubmissionsIn/SDMVC) and [CPSPAN](https://github.com/jinjiaqi1998/CPSPAN). We would like to thank the authors for their valuable contributions.
 
@@ -133,7 +135,8 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
-Copyright link：https://github.com/cleste-pome/SparseMVC
+📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
