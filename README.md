@@ -32,7 +32,7 @@ Overview of SparseMVC, a framework designed to address varying sparsity across v
 <img src="images/SparseMVC_method.png" alt="SparseMVC" style="zoom:50%;" />
 SparseMVC incorporates Sparse Autoencoder with Adaptive Constraints, Correlation-Informed Sample Reweighting, and Cross-view Distribution Alignment.
 
-<img src="images/tsne.png" alt="SparseMVC" style="zoom:50%;" />
+<img src="images/t-sne.png" alt="SparseMVC" style="zoom:50%;" />
 T-SNE visualization of the features learned with recently comparative methods (a-d) and ours (e) on the ALOI-100 dataset.
 
 <p align="center">
@@ -146,6 +146,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
