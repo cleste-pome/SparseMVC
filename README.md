@@ -29,21 +29,35 @@ Multi-view clustering：Multi-view refers to data composed of multiple views fro
 <p align="center">
 <img src="images/Cross-viewSparsityVariations.png" alt="SparseMVC" width="90%">
 </p>
+
 We explicitly identify, analyze, and define the problem of cross-view sparsity variations in multi-view data, and to propose a dedicated framework SparseMVC that offers a targeted and principled solution.
 
-
+<p align="center">
 <img src="images/SparseMVC_framework.png" alt="SparseMVC" width="100%">
+</p>
+
 Overview of SparseMVC, a framework designed to address varying sparsity across views.
 
+<p align="center">
 <img src="images/SparseMVC_method.png" alt="SparseMVC" width="100%">
+</p>
+
 SparseMVC incorporates Sparse Autoencoder with Adaptive Constraints, Correlation-Informed Sample Reweighting, and Cross-view Distribution Alignment.
 
+<p align="center">
+<img src="images/Algorithm.png" alt="SparseMVC" width="75%">
+</p>
+
+<p align="center">
 <img src="images/t-sne.png" alt="SparseMVC" width="100%">
+</p>
+
 T-SNE visualization of the features learned with recently comparative methods (a-d) and ours (e) on the ALOI-100 dataset.
 
 <p align="center">
   <img src="images/exp.png" alt="SparseMVC" width="100%">
 </p>
+
 All experiments were conducted using Python 3.8.15 and PyTorch 1.13.1+cu116 on a Windows PC equipped with an AMD Ryzen 9 5900HX CPU, 32GB RAM, and an Nvidia RTX 3080 GPU (16GB). 
 
 Limitations: (1) SparseMVC does not incorporate a targeted design or specialized mechanisms to address view misalignment and random view missingness.
@@ -156,6 +170,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
