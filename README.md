@@ -51,8 +51,8 @@ Multi-View Clustering Code Framework
 
 - python==3.8.15
 
-- pytorch==1.12.0
-
+- pytorch==1.13.1
+  
 - numpy==1.21.6
 
 - scikit-learn==1.0
@@ -149,6 +149,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
