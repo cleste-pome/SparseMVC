@@ -17,22 +17,25 @@ Just getting started, to be continued.
 ps. 我给所有核心代码加了详细的中文注释。说中文的兄弟姐妹们我懂你们，咱们作为非英语母语者在面对新研究领域的项目时太不容易了，因此我尽我所能给我的MVC开源项目加上了中文注释（毕竟我也是经历过看懂论文却看不懂代码复现不了项目的痛苦），希望能帮到屏幕对面的你！
 
 <p align="center">
-  <img src="images/logo_new.png" alt="SparseMVC" width="80%">
+  <img src="images/logo_new.png" alt="SparseMVC" width="100%">
 </p>
 
 Our approach focuses on view-level structural sparsity, specifically the sparsity variation across different views within the same multi-view sample. This differs from data-level sparsity methods that typically apply uniform sparse encoding across all views without considering inter-view heterogeneity. To address sparsity variation, we proposed SparseMVC, which leverages an adaptive encoding strategy that uses the sparsity ratio of each view as prior knowledge, enabling the encoder to switch between standard and sparse forms with appropriate constraint strengths. Additionally, we introduce a series of interdependent mechanisms to mitigate the side effects of representational divergence caused by non-uniform encoding. Specifically, a correlation-guided fusion strategy leverages global-to-local feature relationships from the early stages to guide the weighting of local features in late fusion. Moreover, a distribution alignment module structurally constrains the fused representations, enhancing cross-view complementarity in the final stage. Comprehensive experiments and detailed dissections of each module validate the efficacy of SparseMVC. We hope this work inspires greater attention to the intrinsic characteristics of data and to the design of architectures driven by data.
 
 ## 2.🕸️SparseMVC
-<img src="images/sparsity_ratios.png" alt="SparseMVC" style="zoom:50%;" />
+
+<p align="center">
+<img src="images/sparsity_ratios.png" alt="SparseMVC" width="80%">
+</p>
 Sparsity ratios across views in multi-view datasets. Top box plot illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). Bottom bar plot presents the sparsity ratios for each view within each dataset. The sparsity ratios in Figure are transformed using the sigmoid function, shifting the baseline from 0 (the bottom of the image) to 0.5 (the middle of the image) for better visualization.
 
-<img src="images/SparseMVC_framework.png" alt="SparseMVC" style="zoom:50%;" />
+<img src="images/SparseMVC_framework.png" alt="SparseMVC" width="100%">
 Overview of SparseMVC, a framework designed to address varying sparsity across views.
 
-<img src="images/SparseMVC_method.png" alt="SparseMVC" style="zoom:50%;" />
+<img src="images/SparseMVC_method.png" alt="SparseMVC" width="100%">
 SparseMVC incorporates Sparse Autoencoder with Adaptive Constraints, Correlation-Informed Sample Reweighting, and Cross-view Distribution Alignment.
 
-<img src="images/t-sne.png" alt="SparseMVC" style="zoom:50%;" />
+<img src="images/t-sne.png" alt="SparseMVC" width="100%">
 T-SNE visualization of the features learned with recently comparative methods (a-d) and ours (e) on the ALOI-100 dataset.
 
 <p align="center">
@@ -146,6 +149,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
