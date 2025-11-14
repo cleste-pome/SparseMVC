@@ -24,10 +24,13 @@ Our approach focuses on view-level structural sparsity, specifically the sparsit
 
 ## 2.🕸️SparseMVC
 
+Multi-view clustering：Multi-view refers to data composed of multiple views from distinct sources. Clustering, which emphasizes unsupervised learning, essentially treats clustering algorithms as probes to assess the representation quality of the features extracted by the network.
+
 <p align="center">
-<img src="images/sparsity_ratios.png" alt="SparseMVC" width="80%">
+<img src="images/Cross-viewSparsityVariations.png" alt="SparseMVC" width="90%">
 </p>
-Sparsity ratios across views in multi-view datasets. Top box plot illustrates the sparsity ratio distribution, which shows the median (orange line), interquartile range (box), and any outliers (points outside the whiskers). Bottom bar plot presents the sparsity ratios for each view within each dataset. The sparsity ratios in Figure are transformed using the sigmoid function, shifting the baseline from 0 (the bottom of the image) to 0.5 (the middle of the image) for better visualization.
+We explicitly identify, analyze, and define the problem of cross-view sparsity variations in multi-view data, and to propose a dedicated framework SparseMVC that offers a targeted and principled solution.
+
 
 <img src="images/SparseMVC_framework.png" alt="SparseMVC" width="100%">
 Overview of SparseMVC, a framework designed to address varying sparsity across views.
@@ -41,7 +44,7 @@ T-SNE visualization of the features learned with recently comparative methods (a
 <p align="center">
   <img src="images/exp.png" alt="SparseMVC" width="100%">
 </p>
-All experiments were conducted using Python 3.8.15 and PyTorch 1.13.1+cu116 on a Windows PC equipped with an AMD Ryzen 9 5900HX CPU, 32GB RAM, and an Nvidia RTX 3080 GPU (16GB).
+All experiments were conducted using Python 3.8.15 and PyTorch 1.13.1+cu116 on a Windows PC equipped with an AMD Ryzen 9 5900HX CPU, 32GB RAM, and an Nvidia RTX 3080 GPU (16GB). 
 
 ## 3.💻User Guide
 
@@ -149,6 +152,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
