@@ -46,6 +46,10 @@ T-SNE visualization of the features learned with recently comparative methods (a
 </p>
 All experiments were conducted using Python 3.8.15 and PyTorch 1.13.1+cu116 on a Windows PC equipped with an AMD Ryzen 9 5900HX CPU, 32GB RAM, and an Nvidia RTX 3080 GPU (16GB). 
 
+Limitations: (1) SparseMVC does not incorporate a targeted design or specialized mechanisms to address view misalignment and random view missingness.
+(2) The use of contrastive learning inherently introduces computational overhead, making it unlikely to rank among the fastest available approaches.
+
+
 ## 3.💻User Guide
 
 Multi-View Clustering Code Framework
@@ -152,6 +156,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
