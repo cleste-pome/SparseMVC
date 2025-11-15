@@ -36,7 +36,7 @@ We explicitly identify, analyze, and define the problem of cross-view sparsity v
 <img src="images/SparseMVC_framework.png" alt="SparseMVC" width="100%">
 </p>
 
-Overview of SparseMVC, a framework designed to address varying sparsity across views.
+Overview of SparseMVC (Adaptive Sparse Autoencoders for Multi-View Clustering), a framework with three key modules. Initially, the sparse autoencoder probes the sparsity of each view and adaptively adjusts encoding formats via an entropymatching loss term, mitigating cross-view inconsistencies. Subsequently, the correlation-informed sample reweighting module employs attention mechanisms to assign weights by capturing correlations between early-fused global and viewspecific features, reducing encoding discrepancies and balancing contributions. Furthermore, the cross-view distribution alignment module aligns feature distributions during the late fusion stage, accommodating datasets with an arbitrary number of views.
 
 <p align="center">
 <img src="images/SparseMVC_method.png" alt="SparseMVC" width="100%">
@@ -170,6 +170,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
