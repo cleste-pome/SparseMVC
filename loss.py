@@ -90,13 +90,12 @@ def kl_sparse_loss(hidden_layer_activation, rho, sparse_beta):
         rho_hat = torch.mean(hidden_layer_activation[layer], dim=0)
 
         # 计算KL散度损失
-        # kl_loss = kl_divergence(rho, rho_hat).sum()
         kl_loss = kl_divergence(rho, rho_hat).mean()
 
         kl_total += kl_loss
 
     # 返回加权的KL散度损失
-    return sparse_beta * kl_total
+    return sparse_beta * kl_total//len(hidden_layer_activation)
 
 
 def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterion, rho=0.05, beta=1.0):
@@ -135,5 +134,6 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
         ae_loss = criterion(reconstructed_x, x)
 
     return ae_loss
+
 
 
