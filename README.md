@@ -10,7 +10,7 @@
 > More details can be found in the 🎞️[slides](https://github.com/cleste-pome/SparseMVC/releases/download/Materials/SparseMVC_PPT2PDF.pdf) and 📰[poster](https://github.com/cleste-pome/SparseMVC/releases/download/Materials/SparseMVC_Poster.png).
 > 
 
-I have attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (papers are on road).(｡･∀･)ﾉﾞ
+Before these papers, I have attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (papers are on road).(｡･∀･)ﾉﾞ
 
 Just getting started, to be continued.
 
@@ -170,6 +170,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
