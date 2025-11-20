@@ -14,7 +14,7 @@ Before these papers, I have attempted to build a training framework for multi-vi
 
 Just getting started, to be continued.
 
-ps. 我给所有核心代码加了详细的中文注释。说中文的兄弟姐妹们我懂你们，咱们作为非英语母语者在面对新研究领域的项目时太不容易了，因此我尽我所能给我的MVC开源项目加上了中文注释（毕竟我也是经历过看懂论文却看不懂代码复现不了项目的痛苦），希望能帮到屏幕对面的你！
+ps. 我给所有核心代码加了详细的中文注释。说中文的兄弟姐妹们我懂你们，咱们作为非英语母语者在面对新研究领域的项目时太不容易了，因此我尽我所能给我的MVC开源项目加上了中文注释（毕竟我也是经历过看懂论文却看不懂代码复现不了项目的痛苦），希望能帮到屏幕对面的你！我深知我的的论文写作比不上大牛，所以我尝试在开源代码和配套上去弥补，让大伙在读起来和用起来上至少取其一，起到抛砖引玉的效果，谢谢屏幕对面的你能读我的论文用我的代码😊
 
 <p align="center">
   <img src="images/SparseMVC_logo_new.png" alt="SparseMVC" width="90%">
@@ -170,6 +170,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
