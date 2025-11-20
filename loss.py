@@ -67,14 +67,14 @@ def kl_divergence(rho, rho_hat):
     :param rho_hat: 实际的平均激活值
     :return: KL散度值
     """
-    # 限制激活值范围，防止数值计算出现log(0)或溢出问题
-    rho_hat = torch.clamp(rho_hat, 1e-6, 1 - 1e-6)
+    # 限制ReLU激活值范围，防止数值计算出现log(0)或溢出问题
+    rho_hat = torch.clamp(rho_hat, 0 + 1e-6, 1 - 1e-6)
 
     # 计算KL散度
     return rho * torch.log(rho / rho_hat) + (1 - rho) * torch.log((1 - rho) / (1 - rho_hat))
 
 
-def sparse_loss(hidden_layer_activation, rho=0.05, beta=1.0):
+def kl_sparse_loss(hidden_layer_activation, rho, sparse_beta):
     """
     计算稀疏损失，用于正则化隐藏层激活值。
     :param hidden_layer_activation: 隐藏层的激活值
@@ -82,14 +82,21 @@ def sparse_loss(hidden_layer_activation, rho=0.05, beta=1.0):
     :param beta: 稀疏正则化强度
     :return: 稀疏正则项
     """
-    # 计算隐藏层激活值的平均值
-    rho_hat = torch.mean(hidden_layer_activation, dim=0)
+    kl_total = 0.0  # 用来累加每层的 KL 稀疏损失
 
-    # 计算KL散度损失
-    kl_loss = kl_divergence(rho, rho_hat).sum()
+    for layer in range(len(hidden_layer_activation)):
+
+        # 计算隐藏层激活值的平均值
+        rho_hat = torch.mean(hidden_layer_activation[layer], dim=0)
+
+        # 计算KL散度损失
+        # kl_loss = kl_divergence(rho, rho_hat).sum()
+        kl_loss = kl_divergence(rho, rho_hat).mean()
+
+        kl_total += kl_loss
 
     # 返回加权的KL散度损失
-    return beta * kl_loss
+    return sparse_beta * kl_total
 
 
 def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterion, rho=0.05, beta=1.0):
@@ -121,5 +128,6 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
 
     # 总损失 = 重构误差 + 稀疏性约束损失 * 稀疏系数 * 比例系数
     ae_loss = reconstruction_loss + C_sca * C_spa * kl_loss
+
 
     return ae_loss
