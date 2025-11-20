@@ -95,7 +95,7 @@ def kl_sparse_loss(hidden_layer_activation, rho, sparse_beta):
         kl_total += kl_loss
 
     # 返回加权的KL散度损失
-    return sparse_beta * kl_total//len(hidden_layer_activation)
+    return sparse_beta * kl_total / len(hidden_layer_activation)
 
 
 def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterion, rho=0.05, beta=1.0):
@@ -134,6 +134,7 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
         ae_loss = criterion(reconstructed_x, x)
 
     return ae_loss
+
 
 
 
