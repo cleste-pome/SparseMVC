@@ -1,5 +1,5 @@
 import numpy as np
-import torch  # 导入PyTorch库
+import torch
 import torch.nn as nn  # 导入PyTorch的神经网络模块
 
 
@@ -44,7 +44,7 @@ class ContrastiveLoss(nn.Module):
         # 计算分子：正样本对相似度的指数
         numerator = torch.exp(positives)
 
-        # 计算分母：掩码矩阵中保留的所有元素的指数值之和
+        # 计算分母：掩码矩阵中保留的所有元素的指数值
         denominator = torch.exp(similarity_matrix) * mask
 
         # 逐行计算损失：-log(分子/分母之和)
@@ -67,7 +67,7 @@ def kl_divergence(rho, rho_hat):
     :param rho_hat: 实际的平均激活值
     :return: KL散度值
     """
-    # 限制ReLU激活值范围，防止数值计算出现log(0)或溢出问题
+    # 限制激活值范围，防止数值计算出现log(0)或溢出问题
     rho_hat = torch.clamp(rho_hat, 0 + 1e-6, 1 - 1e-6)
 
     # 计算KL散度
@@ -95,7 +95,7 @@ def kl_sparse_loss(hidden_layer_activation, rho, sparse_beta):
         kl_total += kl_loss
 
     # 返回加权的KL散度损失
-    return sparse_beta * kl_total / len(hidden_layer_activation)
+    return sparse_beta * kl_total/len(hidden_layer_activation)
 
 
 def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterion, rho=0.05, beta=1.0):
@@ -120,7 +120,7 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
     sparse_beta = beta*C_spa
 
     if sparse_beta > 0:
-        # 计算重构误差
+        # 计算重构误差 TODO (reconstructed_x[0]-x[0]).sum()/len(x[0]) = (reconstructed_x[0]-x[0]).mean() = 0.4678, so it should be: kl_loss = kl_divergence(rho, rho_hat).mean()
         reconstruction_loss = criterion(reconstructed_x, x)
 
         # 计算稀疏性约束损失
@@ -134,7 +134,3 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
         ae_loss = criterion(reconstructed_x, x)
 
     return ae_loss
-
-
-
-
