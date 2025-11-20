@@ -54,13 +54,13 @@ class Encoder(nn.Module):
         self.hidden_layer_activation = None  # 用于保存隐藏层激活值
 
     def forward(self, x):
-        # 前向传播时，保存500维的隐藏层激活值用于稀疏约束
-        x = nn.ReLU()(self.encoder[0](x))  
-        self.hidden_layer_activation = x  # 保存激活值
-        for i in range(1, len(self.encoder)):
-            x = self.encoder[i](x)
-        # 返回编码结果和隐藏层激活值
-        return x, self.hidden_layer_activation
+        sparse_acts = []  # 收集多层激活（在 Dropout 之前的 ReLU 输出，后续loss计算中会clamp的）
+        for i, layer in enumerate(self.encoder):
+            x = layer(x)
+            if i in self.sparse_at:
+                sparse_acts.append(x)  # 这里的 x 就是该 ReLU 的输出
+        feature = x  # 最后一层线性输出
+        return feature, sparse_acts
 
 
 # 解码器类
@@ -178,5 +178,6 @@ class Network(nn.Module):
         H = self.feature_fusion(zs, Wz)  # 全局特征融合
 
         return xrs, zs, rs, H, xr_all, z_all, activation, means  # 返回重建后的输入、编码特征、视角一致特征和全局融合特征
+
 
 
