@@ -190,10 +190,10 @@ if __name__ == '__main__':
             # TODO 调整计算评价指标的轮数间隔，valid_check_num有条件的话最好设置为1
             if data_size >= 2500: # large
                 args.con_epochs = 1000 # small/large 300/1000
-                pre_check_num = 300
+                pre_check_num = 100
                 valid_check_num = 100
             else: # small
-                pre_check_num = 100
+                pre_check_num = 10
                 valid_check_num = 10
 
             pth_path = f'4.models'
@@ -335,5 +335,6 @@ if __name__ == '__main__':
         else:
             print(f'Non-MAT file. Please convert the dataset to multi-view one-dimensional MAT format.')
         data_iter += 1
+
 
 
