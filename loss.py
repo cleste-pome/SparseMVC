@@ -102,13 +102,13 @@ def kl_sparse_loss(hidden_layer_activation, rho, sparse_beta):
 def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterion, rho=0.05, beta=1.0):
     """
     自动编码器损失函数，结合重构误差和稀疏性约束。
-    :param mean: 平均值，用于稀疏性约束系数计算
+    :param mean: 视图稀疏率，用于稀疏性约束系数计算
     :param reconstructed_x: 重构后的数据
     :param x: 原始输入数据
     :param hidden_layer_activation: 隐藏层激活值
     :param criterion: 重构误差的损失函数
     :param rho: 稀疏目标值
-    :param beta: 稀疏正则化强度
+    :param beta: 稀疏正则项比例系数
     :return: 总损失值
     """
     # 稀疏系数阈值
@@ -117,7 +117,7 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
     # 计算稀疏系数 C_spa：小于阈值的值置为0，大于阈值的部分归一化到[0, 1]
     C_spa = np.where(mean <= threshold, 0, (mean - threshold) / (1 - threshold))
 
-    # 稀疏性约束损失 = 稀疏系数 * 比例系数 * kl_sparse_loss
+    # 稀疏性约束损失强度 = 稀疏系数 * 比例系数 * kl_sparse_loss
     sparse_beta = beta*C_spa
 
     if sparse_beta > 0:
@@ -135,4 +135,5 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
         ae_loss = criterion(reconstructed_x, x)
 
     return ae_loss
+
 
