@@ -50,14 +50,10 @@ def pretrain(Epoch):
         mean_average = sum(means) / len(means)
         # TODO pre 1 全局视角
         loss_list.append(
-            ae_loss_function(mean_average, xs2one.to(device), xr_all.to(device), activation[0], criterion, rho=0.05,
-                             beta=1.0))
+            ae_loss_function(mean_average, xs2one.to(device), xr_all.to(device), activation[0], criterion, rho=0.05, beta=1.0))
         # TODO pre 2 局部视角
         for v in range(view):
-            if isinstance(activation[v + 1], int):
-                # 如果稀疏程度较低直接使用均方误差损失;否则，使用自定义的自编码器损失函数，考虑稀疏正则项
-                loss_list.append(
-                    ae_loss_function(means[v], xs[v], xrs[v], activation[v + 1], criterion, rho=0.05, beta=1.0))
+            loss_list.append(ae_loss_function(means[v], xs[v], xrs[v], activation[v + 1], criterion, rho=0.05, beta=1.0))
         # 汇总所有视角的损失
         loss = sum(loss_list)
         # 反向传播计算梯度
@@ -101,13 +97,10 @@ def contrastive_train(Epoch, dataset_name, Plot_SDD):
         xs2one = torch.cat(xs_dict2tensors, dim=1)
         mean_average = sum(means) / len(means)
         loss_list.append(
-            ae_loss_function(mean_average, xs2one.to(device), xr_all.to(device), activation[0], criterion, rho=0.05,
-                             beta=1.0))
+            ae_loss_function(mean_average, xs2one.to(device), xr_all.to(device), activation[0], criterion, rho=0.05, beta=1.0))
         for v in range(view):
             # 如果稀疏程度较低直接使用均方误差损失;否则，使用自定义的自编码器损失函数，考虑稀疏正则项
-            loss_list.append(
-                    ae_loss_function(means[v], xs[v], xrs[v], activation[v + 1], criterion, rho=0.05, beta=1.0))
-        for v in range(view):
+            loss_list.append(ae_loss_function(means[v], xs[v], xrs[v], activation[v + 1], criterion, rho=0.05, beta=1.0))
             # 自加权对比学习损失
             loss_list.append(contrastiveloss(H, rs[v], w2[v]))  # 计算对比损失
         loss = sum(loss_list)  # 汇总所有视角的损失
@@ -193,7 +186,7 @@ if __name__ == '__main__':
                 pre_check_num = 100
                 valid_check_num = 100
             else: # small
-                pre_check_num = 10
+                pre_check_num = 100
                 valid_check_num = 10
 
             pth_path = f'4.models'
@@ -335,6 +328,7 @@ if __name__ == '__main__':
         else:
             print(f'Non-MAT file. Please convert the dataset to multi-view one-dimensional MAT format.')
         data_iter += 1
+
 
 
 
