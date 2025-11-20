@@ -37,21 +37,23 @@ def zero_value_proportion_statistics_once(xs):
 
 # 编码器类
 class Encoder(nn.Module):
-    def __init__(self, input_dim, feature_dim, dropout_rate=0.0):
+    def __init__(self, input_dim, feature_dim, dropout_rate=0.0, sparse_at=(1,4,7,)): #TypeError: 'int' object is not iterable: 加逗号","比如 1 —> 1,
         super(Encoder, self).__init__()
         self.encoder = nn.Sequential(
-            nn.Linear(input_dim, 500),# 线性层，将输入维度转换为500
-            nn.ReLU(),
-            nn.Dropout(dropout_rate),
-            nn.Linear(500, 500),# 线性层，维度不变
-            nn.ReLU(),
-            nn.Dropout(dropout_rate),
-            nn.Linear(500, 2000),# 线性层，将维度转换为2000
-            nn.ReLU(),
-            nn.Dropout(dropout_rate),
-            nn.Linear(2000, feature_dim)# 线性层，将维度转换为特征维度
+            nn.Linear(input_dim, 500),                       # 0
+            nn.ReLU(),                                       # 1  ← 可稀疏
+            nn.Dropout(dropout_rate),                        # 2
+            nn.Linear(500, 500),                             # 3
+            nn.ReLU(),                                       # 4  ← 可稀疏
+            nn.Dropout(dropout_rate),                        # 5
+            nn.Linear(500, 2000),                            # 6
+            nn.ReLU(),                                       # 7  ← 可稀疏
+            nn.Dropout(dropout_rate),                        # 8
+            nn.Linear(2000, feature_dim),                    # 9 (feature)
+            # nn.ReLU()                                      #10
         )
-        self.hidden_layer_activation = None  # 用于保存隐藏层激活值
+        # 想在哪些层收集激活（建议只选激活值的索引：1,4,7[编码器隐藏层特征],9[编码器输出特征]）
+        self.sparse_at = set(sparse_at)
 
     def forward(self, x):
         sparse_acts = []  # 收集多层激活（在 Dropout 之前的 ReLU 输出，后续loss计算中会clamp的）
@@ -178,6 +180,7 @@ class Network(nn.Module):
         H = self.feature_fusion(zs, Wz)  # 全局特征融合
 
         return xrs, zs, rs, H, xr_all, z_all, activation, means  # 返回重建后的输入、编码特征、视角一致特征和全局融合特征
+
 
 
 
