@@ -55,10 +55,7 @@ def pretrain(Epoch):
         # TODO pre 2 局部视角
         for v in range(view):
             if isinstance(activation[v + 1], int):
-                # 如果activation是整数（稀疏程度较低），直接使用均方误差损失
-                loss_list.append(criterion(xs[v], xrs[v]))  # 计算重建损失
-            else:
-                # 否则，使用自定义的自编码器损失函数，考虑稀疏正则项
+                # 如果稀疏程度较低直接使用均方误差损失;否则，使用自定义的自编码器损失函数，考虑稀疏正则项
                 loss_list.append(
                     ae_loss_function(means[v], xs[v], xrs[v], activation[v + 1], criterion, rho=0.05, beta=1.0))
         # 汇总所有视角的损失
@@ -107,10 +104,8 @@ def contrastive_train(Epoch, dataset_name, Plot_SDD):
             ae_loss_function(mean_average, xs2one.to(device), xr_all.to(device), activation[0], criterion, rho=0.05,
                              beta=1.0))
         for v in range(view):
-            if isinstance(activation[v + 1], int):
-                loss_list.append(criterion(xs[v], xrs[v]))  # 计算重建损失
-            else:
-                loss_list.append(
+            # 如果稀疏程度较低直接使用均方误差损失;否则，使用自定义的自编码器损失函数，考虑稀疏正则项
+            loss_list.append(
                     ae_loss_function(means[v], xs[v], xrs[v], activation[v + 1], criterion, rho=0.05, beta=1.0))
         for v in range(view):
             # 自加权对比学习损失
@@ -340,4 +335,5 @@ if __name__ == '__main__':
         else:
             print(f'Non-MAT file. Please convert the dataset to multi-view one-dimensional MAT format.')
         data_iter += 1
+
 
