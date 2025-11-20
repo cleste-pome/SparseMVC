@@ -117,17 +117,22 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
     # 计算稀疏系数 C_spa：小于阈值的值置为0，大于阈值的部分归一化到[0, 1]
     C_spa = np.where(mean <= threshold, 0, (mean - threshold) / (1 - threshold))
 
-    # 比例系数 C_sca，默认为1
-    C_sca = 1.0
+    # 稀疏性约束损失 = 稀疏系数 * 比例系数 * kl_sparse_loss
+    sparse_beta = beta*C_spa
 
-    # 计算重构误差
-    reconstruction_loss = criterion(reconstructed_x, x)
+    if sparse_beta > 0:
+        # 计算重构误差
+        reconstruction_loss = criterion(reconstructed_x, x)
 
-    # 计算稀疏性约束损失
-    kl_loss = sparse_loss(hidden_layer_activation, rho, beta)
+        # 计算稀疏性约束损失
+        sparse_loss = kl_sparse_loss(hidden_layer_activation, rho, sparse_beta)
 
-    # 总损失 = 重构误差 + 稀疏性约束损失 * 稀疏系数 * 比例系数
-    ae_loss = reconstruction_loss + C_sca * C_spa * kl_loss
+        # 总损失 = 重构误差 + 稀疏性约束损失
+        ae_loss = reconstruction_loss + sparse_loss
 
+    else:
+        # 自编码器总损失 = 重构误差
+        ae_loss = criterion(reconstructed_x, x)
 
     return ae_loss
+
