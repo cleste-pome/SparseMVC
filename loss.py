@@ -44,7 +44,7 @@ class ContrastiveLoss(nn.Module):
         # 计算分子：正样本对相似度的指数
         numerator = torch.exp(positives)
 
-        # 计算分母：掩码矩阵中保留的所有元素的指数值
+        # 计算分母：掩码矩阵中保留的所有元素的指数值 TODO pycharm中调试的时候tensor作为array查看无法正常显示：denominator.detach().cpu().numpy()
         denominator = torch.exp(similarity_matrix) * mask
 
         # 逐行计算损失：-log(分子/分母之和)
@@ -134,3 +134,4 @@ def ae_loss_function(mean, reconstructed_x, x, hidden_layer_activation, criterio
         ae_loss = criterion(reconstructed_x, x)
 
     return ae_loss
+
