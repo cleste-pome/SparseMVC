@@ -160,10 +160,8 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 ```bibtex
 @article{liu2025sparsemvc,
   title={SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering},
-  author={Ruimeng Liu and Xin Zou and Chang Tang and Xiao Zheng and Xingchen Hu and Kun Sun and Xinwang Liu},
-  journal={Advances in neural information processing systems},
-  volume={},
-  pages={},
+  author={Liu, Ruimeng and Zou, Xin and Tang, Chang and Zheng, Xiao and Hu, Xingchen and Sun, Kun and Liu, Xinwang},
+  journal={Advances in Neural Information Processing Systems},
   year={2025}
 }
 ```
@@ -172,6 +170,7 @@ If you use our code framework or get inspired by our work (hopefully as a positi
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
 📎Copyright link：https://github.com/cleste-pome/SparseMVC
+
 
 
 
