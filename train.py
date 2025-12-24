@@ -31,10 +31,10 @@ def setup_seed(Seed):
 
 def pretrain(Epoch):
     tot_loss = 0.  # 初始化总损失
-    loss_list = []  # 用于存储每个视角的损失
     criterion = torch.nn.MSELoss()  # 定义均方误差损失函数，用于计算重建误差
     # 遍历数据集，enumerate用于获取批次索引和数据
     for batch_idx, (xs, _, _) in enumerate(data_loader):
+        loss_list = []  # 用于存储每个视角的损失
         # 将数据从字典中提取并按键的顺序转换为张量列表
         xs_dict2tensors = [xs[key] for key in sorted(xs.keys())]
         # 将所有视角的数据拼接在一起，形成一个大的张量，用于计算整体的重建误差
@@ -165,7 +165,7 @@ if __name__ == '__main__':
 
             # TODO batch size
             if Dataname == 'NUSWIDEOBJ': # OOM
-                args.batch_size = 256
+                args.batch_size = args.batch_size
             else:
                 args.batch_size = data_size
 
@@ -328,6 +328,7 @@ if __name__ == '__main__':
         else:
             print(f'Non-MAT file. Please convert the dataset to multi-view one-dimensional MAT format.')
         data_iter += 1
+
 
 
 
