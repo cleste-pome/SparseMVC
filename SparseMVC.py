@@ -116,8 +116,11 @@ class Network(nn.Module):
 
         # 视角一致特征学习层
         self.common_information_module = nn.Sequential(
-            nn.Linear(feature_dim, high_feature_dim)  # 线性层，将特征维度转换为高特征维度
+            nn.Linear(feature_dim, high_feature_dim)  # 线性层，降维以保证对比学习稳定性
         )
+
+        # 全局-局部特征注意力加权
+        self.attention_mechanism = AttentionMechanism(self.feature_dim).to(device)
 
         # 循环一致性转化器
         self.cycle_transfer_module = nn.Sequential(
@@ -166,8 +169,7 @@ class Network(nn.Module):
             activation.append(hidden_activation)
             zs.append(z)  # 添加到编码特征列表
 
-        attention_mechanism = AttentionMechanism(self.feature_dim)
-        Wz = attention_mechanism.compute_attention_weights(z_all, zs)
+        Wz = self.attention_mechanism.compute_attention_weights(z_all, zs)
         # print(f'Wz:{Wz}')
 
         for v in range(self.view):
@@ -180,6 +182,7 @@ class Network(nn.Module):
         H = self.feature_fusion(zs, Wz)  # 全局特征融合
 
         return xrs, zs, rs, H, xr_all, z_all, activation, means  # 返回重建后的输入、编码特征、视角一致特征和全局融合特征
+
 
 
 
