@@ -64,7 +64,7 @@ def pretrain(Epoch):
         tot_loss += loss.item()
     # 计算并打印当前轮次的平均损失
     pretrain_loss = tot_loss / len(data_loader)
-    print('Pre Epochs[{}]'.format(Epoch + 1), 'Loss:{:.6f}'.format(pretrain_loss))
+    print(f'Pre Epochs[{Epoch + 1}] Loss:{pretrain_loss:.6f} [Dataset:{Dataname}]')
     # 返回当前轮次的平均损失和每个视角的权重
     return pretrain_loss
 
@@ -108,7 +108,7 @@ def contrastive_train(Epoch, dataset_name, Plot_SDD):
         optimizer.step()  # 更新模型参数
         tot_loss += loss.item()  # 累加损失
     con_loss = tot_loss / len(data_loader)
-    print('Con Epochs[{}]'.format(Epoch + 1), 'Loss:{:.6f}'.format(con_loss))  # 输出当前轮次的平均损失
+    print(f'Con Epochs[{Epoch + 1}] Loss:{con_loss:.6f} [Dataset:{Dataname}]')  # 输出当前轮次的平均损失
     return con_loss
 
 
@@ -328,6 +328,7 @@ if __name__ == '__main__':
         else:
             print(f'Non-MAT file. Please convert the dataset to multi-view one-dimensional MAT format.')
         data_iter += 1
+
 
 
 
