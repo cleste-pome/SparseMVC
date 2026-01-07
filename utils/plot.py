@@ -11,7 +11,7 @@ plot_acc(nmi_list, dataset.data_name, 'nmi')
 """
 
 
-# 定义绘制准确率曲线的函数，参数acc_list为各轮训练的准确率列表
+# 定义绘制准确率曲线的函数，参数acc_list为各轮训练的准确率列表（也可绘制任意评价指标列表的曲线图）
 def plot_acc(imgs_path, acc_list, dataset_name, name, Valid_check_num=1):
     if not os.path.exists(imgs_path):
         os.makedirs(imgs_path)
@@ -76,4 +76,5 @@ def plot_acc(imgs_path, acc_list, dataset_name, name, Valid_check_num=1):
     
     # 打印保存的图表文件名
     print(f'Plot saved as {filename}')
+
 
