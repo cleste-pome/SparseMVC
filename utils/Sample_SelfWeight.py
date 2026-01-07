@@ -1,14 +1,15 @@
 import torch
 import torch.nn.functional as F
-from torch.nn import Linear
+import torch.nn as nn
 
 
-class AttentionMechanism:
+class AttentionMechanism(nn.Module):
     def __init__(self, feature_dim):
-        self.query_layer = Linear(feature_dim, feature_dim, bias=False).cuda()
-        self.key_layer = Linear(feature_dim, feature_dim, bias=False).cuda()
-        self.value_layer = Linear(feature_dim, feature_dim, bias=False).cuda()
-        self.scale = torch.sqrt(torch.tensor(feature_dim, dtype=torch.float32)).cuda()
+        super().__init__()
+        self.query_layer = nn.Linear(feature_dim, feature_dim, bias=False)
+        self.key_layer = nn.Linear(feature_dim, feature_dim, bias=False)
+        self.value_layer = nn.Linear(feature_dim, feature_dim, bias=False)
+        self.register_buffer("scale", torch.tensor(feature_dim, dtype=torch.float32).sqrt())
 
     def compute_attention_weights(self, z_all, zs):
         """
@@ -27,13 +28,13 @@ class AttentionMechanism:
         view_count = len(zs)
 
         # 对全局特征 z_all 应用线性变换，得到查询向量 Q，形状为 [batch_size, feature_dim]
-        Q = self.query_layer(z_all.cuda())
+        Q = self.query_layer(z_all)
 
         # 对每个视图的特征 z_v 应用线性变换，生成键向量 K，并在第 1 维堆叠，形成 [batch_size, view_count, feature_dim]
-        K = torch.stack([self.key_layer(z.cuda()) for z in zs], dim=1)
+        K = torch.stack([self.key_layer(z) for z in zs], dim=1)
 
         # 对每个视图的特征 z_v 应用线性变换，生成值向量 V，并在第 1 维堆叠，形成 [batch_size, view_count, feature_dim]
-        V = torch.stack([self.value_layer(z.cuda()) for z in zs], dim=1)
+        V = torch.stack([self.value_layer(z) for z in zs], dim=1)
 
         # 检查 Q 的形状是否正确（[batch_size, feature_dim]）
         assert Q.shape == (
