@@ -10,6 +10,15 @@
 > More details can be found in the 🎞️[slides](https://github.com/cleste-pome/SparseMVC/releases/download/Materials/SparseMVC_PPT2PDF.pdf) and 📰[poster](https://github.com/cleste-pome/SparseMVC/releases/download/Materials/SparseMVC_Poster.png).
 > 
 
+```bibtex
+@article{liu2025sparsemvc,
+  title={SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering},
+  author={Liu, Ruimeng and Zou, Xin and Tang, Chang and Zheng, Xiao and Hu, Xingchen and Sun, Kun and Liu, Xinwang},
+  journal={Advances in Neural Information Processing Systems},
+  year={2025}
+}
+```
+
 Before these papers, I have attempted to build a training framework for multi-view learning (the clustering part has already been completed). It includes functionalities such as reading datasets (.mat), data processing (with noise, missing data, and misalignment), replaceable network construction modules, loss functions, training data saving, visualization, and various other analytical utilities. You are welcome to use and reference it (papers are on road).(｡･∀･)ﾉﾞ
 
 Just getting started, to be continued.
@@ -157,15 +166,7 @@ Our proposed SparseMVC draws inspiration from the works of [SCMVC](https://githu
 
 If you use our code framework or get inspired by our work (hopefully as a positive example, but if it’s a negative example, that's fine too(*≧ω≦)), please cite our paper! 
 
-```bibtex
-@article{liu2025sparsemvc,
-  title={SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering},
-  author={Liu, Ruimeng and Zou, Xin and Tang, Chang and Zheng, Xiao and Hu, Xingchen and Sun, Kun and Liu, Xinwang},
-  journal={Advances in Neural Information Processing Systems},
-  year={2025}
-}
-```
-
+## 6. ⭐Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=cleste-pome/SparseMVC&type=date&legend=top-left)](https://www.star-history.com/#cleste-pome/SparseMVC&type=date&legend=top-left)
 
