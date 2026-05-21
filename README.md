@@ -11,11 +11,13 @@
 > 
 
 ```bibtex
-@article{liu2025sparsemvc,
-  title={SparseMVC: Probing Cross-view Sparsity Variations for Multi-view Clustering},
+@inproceedings{liu2025sparsemvc,
+  title={Sparsemvc: Probing cross-view sparsity variations for multi-view clustering},
   author={Liu, Ruimeng and Zou, Xin and Tang, Chang and Zheng, Xiao and Hu, Xingchen and Sun, Kun and Liu, Xinwang},
-  journal={Advances in Neural Information Processing Systems},
-  year={2025}
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2025},
+  volume={38},
+  pages={154594--154622},
 }
 ```
 
